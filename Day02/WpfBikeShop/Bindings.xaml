@@ -16,12 +16,13 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <StackPanel x:Name="stxPanel">
             <TextBox x:Name="txtSpeed" Text="{Binding Path=Speed}" Height="50"/>
             <TextBox x:Name="txtColor" Text="{Binding Path=Color}" Height="50"/>
-            <TextBox x:Name="txtFirstName" Text="{Binding Path=FirstName}" Height="50"/>
+            <TextBox x:Name="txtFirstName" Text="{Binding Path=Driver.FirstName}" Height="50"/>
         </StackPanel>
         
         <!--<TextBox x:Name="txtSpeed" Text="{Binding Speed}" Height="50" />-->
@@ -34,9 +35,32 @@
                        Text="{Binding Path=Value, ElementName=slider, StringFormat={}{0:0}}"/>
         </StackPanel>
 
-        <StackPanel>
+        <StackPanel Grid.Row="2">
             <TextBox Text="{Binding Speed, Mode=TwoWay, Converter={StaticResource twiceConv}}"/>
-            <TextBox Text="{Binding Speed, Mode=OneWay}"/>
+            <TextBox Text="{Binding Speed, Mode=TwoWay}"/>
         </StackPanel>
+
+        <!-- 화면 출력 디자인 /-->
+        <ListBox x:Name="lbxCars" Grid.Row="3" Width="150" ItemsSource="{Binding}">
+            <ListBox.ItemTemplate>
+                <ItemContainerTemplate>
+                    <StackPanel>
+                        <TextBlock Text="Speed"/>
+                        <TextBox Text="{Binding Speed}"/>
+                        <Slider Value="{Binding Speed}"/>
+                        <TextBlock Text="Color"/>
+                        <Slider Value="{Binding Color}"/>
+                        <Border Height="10">
+                            <Border.Background>
+                                <SolidColorBrush Color="{Binding Color}"/>
+                            </Border.Background>
+                        </Border>
+                        <TextBox Text="{Binding Color}"/>
+                    </StackPanel>
+                </ItemContainerTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        
+        
     </Grid>
 </Page>

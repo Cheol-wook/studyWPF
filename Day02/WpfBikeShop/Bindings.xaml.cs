@@ -34,7 +34,19 @@ namespace WpfBikeShop
                     HasDrivingLicense = true
                 },
             };
-            stxPanel.DataContext = c;
+            this.DataContext = c;
+
+
+            var carlist = new List<Car>();
+            for (int i = 0; i < 10; i++)
+            {
+                carlist.Add(new Car
+                {
+                    Speed = i * 10,
+                    Color = Colors.Purple
+                });
+            }
+            lbxCars.DataContext = carlist;
         }
     }
 }

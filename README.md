@@ -1,6 +1,13 @@
 # studyWPF
 WPF학습 저장소
 
+### Day01
+---
+1. WPF개요
+2. git, github 설정
+3. 나눔고딕코딩폰트 설정
+4. WPF Basic
+
 ### Day02 
 ---
 1. 레이아웃 (패널, 그리드)

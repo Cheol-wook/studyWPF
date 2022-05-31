@@ -27,7 +27,9 @@ namespace WpfBikeShop
 
         private void btnProducts_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(
+                new Uri("/productmanagement.xaml", UriKind.RelativeOrAbsolute)
+                );
         }
 
         private void btnLiveSupport_Click(object sender, RoutedEventArgs e)

@@ -36,7 +36,14 @@
         <Button Grid.Row="0" Grid.Column="0" Content="A"/>
         <Button Grid.Row="0" Grid.Column="1" Content="B"/>
         <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
-            
         </StackPanel>
+
+        <ListBox Grid.Row="3" Grid.Column="1">
+            <Label Content="Element1"/>
+            <Label Content="Element2"/>
+            <GroupBox Content="Element1">
+                세번째 엘리먼트
+            </GroupBox>
+        </ListBox>
     </Grid>
 </Page>

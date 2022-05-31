@@ -16,29 +16,30 @@ using System.Windows.Shapes;
 namespace WpfBikeShop
 {
     /// <summary>
-    /// MainWindow.xaml에 대한 상호 작용 논리
+    /// Menu.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Menu : Page
     {
-        public MainWindow()
+        public Menu()
         {
             InitializeComponent();
-
-            InitClass();
         }
 
-        private void InitClass()
+        private void btnProducts_Click(object sender, RoutedEventArgs e)
         {
-            Human driver = new Human
-            {
-                FirstName = "Nick",
-                HasDrivingLicense = true
-            };
 
-            Car car = new Car();
-            car.Speed = 100;
-            car.Color = Colors.Red;
-            car.Driver = driver;
+        }
+
+        private void btnLiveSupport_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnEmailSupport_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(
+                new Uri("/Contact.xaml", UriKind.RelativeOrAbsolute)
+                );
         }
     }
 }

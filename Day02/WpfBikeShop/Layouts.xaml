@@ -42,7 +42,7 @@
             <Label Content="Element1"/>
             <Label Content="Element2"/>
             <GroupBox Content="Element1">
-                세번째 엘리먼트
+                
             </GroupBox>
         </ListBox>
     </Grid>

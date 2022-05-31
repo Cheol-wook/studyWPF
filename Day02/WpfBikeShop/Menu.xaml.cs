@@ -32,7 +32,9 @@ namespace WpfBikeShop
 
         private void btnLiveSupport_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(
+                new Uri("/Layouts.xaml", UriKind.RelativeOrAbsolute)
+                );
         }
 
         private void btnEmailSupport_Click(object sender, RoutedEventArgs e)

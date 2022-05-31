@@ -2,9 +2,17 @@
 
 namespace WpfBikeShop
 {
-    public class Car
+    public class Car : Notifier
     {
-        public double Speed { get; set; }
+        private double speed;
+        public double Speed { 
+            get { return speed; }
+            set
+            {
+                speed = value;
+                OnPropertyChanged("Speed"); //speed 속성의 값이 변경되었다고 System에게 알려줌
+            }
+        }
         public Color Color { get; set; }
         public Human Driver { get; set; }
         public Car()

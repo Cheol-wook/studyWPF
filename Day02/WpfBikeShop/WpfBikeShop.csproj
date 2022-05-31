@@ -56,6 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="TwiceConverter.cs" />
+    <Compile Include="Notifier.cs" />
     <Page Include="Bindings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

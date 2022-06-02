@@ -57,12 +57,12 @@
                   IsReadOnly="True" ItemsSource="{Binding}" AutoGenerateColumns="False"
                   SelectedCellsChanged="grdResult_SelectedCellsChanged">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding title}" Header="한글제목" FontWeight="Bold" />
-                <DataGridTextColumn Binding="{Binding subTitle}" Header="영어제목" FontWeight="Bold" />
-                <DataGridTextColumn Binding="{Binding pubDate}" Header="상영년도" FontWeight="Bold" />
-                <DataGridTextColumn Binding="{Binding director}" Header="감독" FontWeight="Bold" />
+                <DataGridTextColumn Binding="{Binding Title}" Header="한글제목" FontWeight="Bold" />
+                <DataGridTextColumn Binding="{Binding SubTitle}" Header="영어제목" FontWeight="Bold" />
+                <DataGridTextColumn Binding="{Binding PubDate}" Header="상영년도" FontWeight="Bold" />
+                <DataGridTextColumn Binding="{Binding Director}" Header="감독" FontWeight="Bold" />
                 <DataGridTextColumn Binding="{Binding Actor}" Header="배우" FontWeight="Bold" />
-                <DataGridTextColumn Binding="{Binding userRating}" Header="네티즌 평점" FontWeight="Bold" />
+                <DataGridTextColumn Binding="{Binding UserRating}" Header="네티즌 평점" FontWeight="Bold" />
             </DataGrid.Columns>
         </DataGrid>
         

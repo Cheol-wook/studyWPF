@@ -17,7 +17,7 @@ namespace WpfNaverMovieFinder.Models
         public string Title { get; set; }
         public string Link { get; set; }
         public string Image { get; set; }
-        public string subTitle { get; set; }
+        public string SubTitle { get; set; }
         public string PubDate { get; set; }
         public string Director { get; set; }
         public string Actor { get; set; }
@@ -28,7 +28,7 @@ namespace WpfNaverMovieFinder.Models
             Title = title;
             Link = link;
             Image = image;
-            subTitle = subtitle;
+            SubTitle = subtitle;
             PubDate = pubDate;
             Director = director;
             Actor = actor;

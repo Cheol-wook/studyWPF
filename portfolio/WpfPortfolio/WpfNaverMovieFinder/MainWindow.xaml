@@ -59,7 +59,12 @@
         
         <!--포스터 영역-->
         <Image x:Name="imgPoster" Grid.Row="1" Grid.Column="2" Grid.RowSpan="2"
-               Source="NoPicture.jpg" Margin="10"/>
+               Source="NoPicture.jpg" Margin="10, 60"/>
+        
+        <!--상태바 영역-->
+        <StatusBar Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4">
+            <StatusBarItem Content="Naver &amp; Youtube OpenAPI APP" />
+        </StatusBar>
     </Grid>
     
 </mah:MetroWindow>

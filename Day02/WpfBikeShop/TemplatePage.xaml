@@ -9,6 +9,12 @@
       Title="TemplatePage">
 
     <Grid>
-        <Button Content="Press Me" Width="200" Height="40" Click="Button_Click"/>
+        <Button Content="Press Me" Width="200" Height="40" Click="Button_Click">
+            <Button.Template>
+                <ControlTemplate>
+                    <Ellipse Fill="GreenYellow"/>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
     </Grid>
 </Page>

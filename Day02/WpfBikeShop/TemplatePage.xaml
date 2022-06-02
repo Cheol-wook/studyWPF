@@ -9,10 +9,14 @@
       Title="TemplatePage">
 
     <Grid>
-        <Button Content="Press Me" Width="200" Height="40" Click="Button_Click">
+        <Button Content="Press Me" Width="200" Height="50" Click="Button_Click">
             <Button.Template>
                 <ControlTemplate>
-                    <Ellipse Fill="GreenYellow"/>
+                    <Grid>
+                        <Ellipse Fill="GreenYellow"/>
+                        <Label Content="Press Me" 
+                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
                 </ControlTemplate>
             </Button.Template>
         </Button>

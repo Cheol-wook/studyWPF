@@ -52,9 +52,14 @@
             </Button>
         </StackPanel>
         <!--검색 결과 영역-->
-        <DataGrid x:Name="grdResult" Grid.Row="2" Grid.Column="1">
-            
+        <DataGrid x:Name="grdResult" Grid.Row="2" Grid.Column="1" Margin="10"
+                  Style="{StaticResource MahApps.Styles.DataGrid.Azure}"
+                  IsReadOnly="True">            
         </DataGrid>
+        
+        <!--포스터 영역-->
+        <Image x:Name="imgPoster" Grid.Row="1" Grid.Column="2" Grid.RowSpan="2"
+               Source="NoPicture.jpg" Margin="10"/>
     </Grid>
     
 </mah:MetroWindow>

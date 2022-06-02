@@ -5,10 +5,17 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
     xmlns:local="clr-namespace:WpfNaverMovieFinder"
     mc:Ignorable="d"
     Title="Naver MovieFinder V2.0"
     Height="650" Width="1024" ResizeMode="NoResize" ShowTitleBar="True">
+    <mah:MetroWindow.IconTemplate>
+        <DataTemplate>
+            <iconPacks:PackIconSimpleIcons Kind="Naver" Margin="5,7,0,0"
+                                           Foreground="White"/>
+        </DataTemplate>
+    </mah:MetroWindow.IconTemplate>
     
     <Grid>
         <Grid.RowDefinitions>
@@ -27,11 +34,27 @@
         
         <!--검색창 영역-->
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
-            <TextBox x:Name="txtSearchName" Width="500" Margin="5" FontSize="14"
+            <TextBox x:Name="txtSearchName" Width="500" Margin="5,10" FontSize="14"
+                     mah:TextBoxHelper.Watermark="검색할 영화 이름 입력"
+                     mah:TextBoxHelper.UseFloatingWatermark="True"
+                     mah:TextBoxHelper.ClearTextButton="True"
                      KeyDown="txtSearchName_KeyDown" />
-            <Button x:Name="btnSearch" Width="130" Margin="5,10" FontSize="14"
-                    Content="검색" Click="btnSearch_Click"/>
+            <Button x:Name="btnSearch" Width="130" Margin="5, 10" FontSize="14"
+                    Content="검색" Click="btnSearch_Click" >
+                <Button.ContentTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding}" Margin="10,0"/>
+                            <iconPacks:PackIconForkAwesome Kind="Search" />
+                        </StackPanel>
+                    </DataTemplate>
+                </Button.ContentTemplate>
+            </Button>
         </StackPanel>
+        <!--검색 결과 영역-->
+        <DataGrid x:Name="grdResult" Grid.Row="2" Grid.Column="1">
+            
+        </DataGrid>
     </Grid>
     
 </mah:MetroWindow>

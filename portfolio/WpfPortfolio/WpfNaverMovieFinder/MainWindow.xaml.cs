@@ -115,13 +115,12 @@ namespace WpfNaverMovieFinder
             {
                 MovieItem movie = new MovieItem(
                     Regex.Replace(item["title"].ToString(),@"<(.|\n)*?>", string.Empty),
-                    item["title"].ToString(),
                     item["link"].ToString(),
                     item["image"].ToString(),
                     item["subtitle"].ToString(),
                     item["pubDate"].ToString(),
                     item["director"].ToString().Replace("|",", "),
-                    item["actor"].ToString(),
+                    item["actor"].ToString().Replace("|", ", "),
                     item["userRating"].ToString());
                 movieItems.Add(movie);
             }

@@ -21,5 +21,30 @@ namespace WpfNaverMovieFinder
         {
 
         }
+
+        private void btnAddWatchList_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAddWatchList_Click_1(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnViewWatchList_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnDelWatchList_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnWatchTrailer_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
     }
 }

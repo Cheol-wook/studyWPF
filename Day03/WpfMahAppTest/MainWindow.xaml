@@ -7,7 +7,7 @@
     xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:local="clr-namespace:WpfMahAppTest"
     mc:Ignorable="d"
-    Title="MainWindow" Height="450" Width="800">
+    Title="MainWindow" Height="650" Width="1024" ShowTitleBar="True" ResizeMode="NoResize">
     <Grid>
         
     </Grid>

@@ -22,3 +22,11 @@
   ![YoutubePlay](https://raw.githubusercontent.com/Cheol-wook/studyWPF/main/capture/Martian_trailer.JPG)
   
   검색영화 예고편보기 
+
+<br/>
+
+## Naver 뉴스검색
+- WPF (.NET Framework 4.7.2/ C#)
+  - MahApps.Metro Metro UI/Morden UI
+  - Newtonsoft.Json
+  - Naver OpenAPI

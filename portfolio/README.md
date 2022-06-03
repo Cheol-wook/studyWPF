@@ -2,9 +2,16 @@
 
 ## Naver 영화 검색
 - WPF (.NET Framework 4.7.2/ C#)
-  - MahApps.Metro Design
+  - MahApps.Metro Metro UI/Morden UI
+  - Newtonsoft.Json
   - Naver OpenAPI
-  - Youtube OpenAPI
-  - Json Datahandling
+  - Google.Apis.Youtube.v3
+  - CefSharp WebBrowser component
+  - EntityFramework DB
   
-  ![NaverMovieFinder](https://github.com/Cheol-wook/studyWPF/blob/main/capture/martian.png)
+
+  ![NaverMovieFinder](https://raw.githubusercontent.com/Cheol-wook/studyWPF/main/capture/martian.png)
+  실행화면
+  
+  ![YoutubePlay](https://raw.githubusercontent.com/Cheol-wook/studyWPF/main/capture/Martian_trailer.JPG)
+  검색영화 예고편보기 

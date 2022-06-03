@@ -78,7 +78,7 @@
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding}" Margin="10, 0"/>
+                            <TextBlock Text="{Binding}" Margin="10, 0" />
                             <iconPacks:PackIconForkAwesome Kind="Plus" />
                         </StackPanel>
                     </DataTemplate>

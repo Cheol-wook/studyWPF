@@ -22,5 +22,8 @@ WPF학습 저장소
 
 ### Day04
 ---
-1. 네이버 영화 앱 마무리
+1. 네이버 영화 앱 마무리([클릭](https://github.com/Cheol-wook/studyWPF/tree/main/portfolio))
 2. 네이버 뉴스 검색 앱
+
+### Day05
+1. MVVM 패턴 학습

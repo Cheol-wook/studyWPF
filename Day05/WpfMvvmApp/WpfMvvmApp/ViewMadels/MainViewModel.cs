@@ -140,11 +140,21 @@ namespace WpfMvvmApp.ViewMadels
                 Person person = new Person(InFirstName, InLastName, inEmail, inDate);
 
                 await Task.Run(() => OutFirstName = person.FirstName);
+                await Task.Run(() => OutLastName = person.LastName);
+                await Task.Run(() => OutEmail = person.Email);
+                await Task.Run(() => OutDate = person.Date.ToShortDateString());
+                await Task.Run(() => OutBirthday = $"{person.IsBirthday}");
+                await Task.Run(() => OutAdult = $"{person.IsAdult}");
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"예외 발생 : {ex.Message}");
             }
+        }
+
+        public MainViewModel()
+        {
+            this.inDate = DateTime.Parse("1990-01-01");
         }
     }
 }

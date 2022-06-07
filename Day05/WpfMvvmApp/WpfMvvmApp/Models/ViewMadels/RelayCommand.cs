@@ -7,6 +7,11 @@ using System.Windows.Input;
 
 namespace WpfMvvmApp.Models.ViewMadels
 {
+
+    /// <summary>
+    /// viewModel과 view를 glue하기 위함
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class RelayCommand<T> : ICommand
     {
         private readonly Action<T> execute;         //실행 처리를 위한 Generic

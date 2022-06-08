@@ -9,8 +9,8 @@ namespace WpfCaliburnApp.ViewModels
     public class MainViewModel : Screen
     {
         //private EmployeesModel employee;
-        private List<EmployeesModel> listEmployees;
-        public List<EmployeesModel> Listemployees
+        private BindableCollection<EmployeesModel> listEmployees;       //니들은 List같은거 사용하지마라...
+        public BindableCollection<EmployeesModel> Listemployees
         {
             get { return listEmployees; }
             set
@@ -34,7 +34,7 @@ namespace WpfCaliburnApp.ViewModels
                 string strQuery = "SELECT * FROM TblEmployees";
                 SqlCommand cmd = new SqlCommand(strQuery, conn);
                 SqlDataReader reader = cmd.ExecuteReader();
-                Listemployees = new List<EmployeesModel>();
+                Listemployees = new BindableCollection<EmployeesModel>();
 
                 while (reader.Read())
                 {

@@ -8,11 +8,25 @@ namespace WpfCaliburnApp.ViewModels
 {
     public class MainViewModel : Screen
     {
-        private EmployeesModel employee;
-        public List<EmployeesModel> Listemployees { get; set; }
+        //private EmployeesModel employee;
+        private List<EmployeesModel> listEmployees;
+        public List<EmployeesModel> Listemployees
+        {
+            get { return listEmployees; }
+            set
+            {
+                listEmployees = value;
+                NotifyOfPropertyChange(() => listEmployees);
+            }
+        }
         string connstring = "Data Source=PC01;Initial Catalog=OpenApiLab;Integrated Security=True";
 
         public MainViewModel()
+        {
+            GetEmployees();
+        }
+
+        public void GetEmployees()
         {
             using (SqlConnection conn = new SqlConnection(connstring))
             {
@@ -46,6 +60,7 @@ namespace WpfCaliburnApp.ViewModels
             {
                 Id = value;
                 NotifyOfPropertyChange(() => Id);
+                NotifyOfPropertyChange(() => CanDelEmployee);
             }
         }
         string empName;
@@ -180,8 +195,31 @@ namespace WpfCaliburnApp.ViewModels
             }   // End of Using (SqlConnection ...)
 
             // 입력창 전부 초기화
-            // 데이터 다시 조회
+            NewEmployee();
 
+            // 데이터 다시 조회
+            GetEmployees();
+        }
+
+        public bool CanDelEmployee
+        {
+            get { return (id != 0); }
+        }
+        public void DelEmployee()
+        {
+            using (SqlConnection conn = new SqlConnection(connstring))
+            {
+                conn.Open();
+                string strQuery = "DELETE FROM TblEmployees WHERE id = @id";
+                SqlCommand cmd = new SqlCommand(strQuery, conn);
+                SqlParameter parmId = new SqlParameter("@id", id);
+                cmd.Parameters.Add(parmId);
+
+                cmd.ExecuteNonQuery();
+            }
+
+            NewEmployee();          // 입력창 초기화
+            GetEmployees();         // 데이터 그리드 재호출
         }
     }
 }

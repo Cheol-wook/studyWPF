@@ -42,7 +42,7 @@
             </DataGrid>
 
             <!--버튼-->
-            <Button Grid.Row="2" Grid.Column="0" Content="Get Lists" Width="200" Margin="5" Style="{StaticResource MahApps.Styles.Button.Dialogs.Accent}"/>
+            <Button x:Name="GetEmployees" Grid.Row="2" Grid.Column="0" Content="Get Lists" Width="200" Margin="5" Style="{StaticResource MahApps.Styles.Button.Dialogs.Accent}"/>
         </Grid>
 
         <!--오른쪽 화면-->
@@ -101,7 +101,10 @@
 
             <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
                 <Button x:Name="NewEmployee" Content="New" Width="100" Height="40" Margin="5,13"/>
-                <Button x:Name="SaveEmployee" Content="SAVE" Width="100" Margin="13" Style="{StaticResource MahApps.Styles.Button.Dialogs.AccentHighlight}"/>
+                <Button x:Name="SaveEmployee" Content="SAVE" Width="100" Margin="5,13" 
+                        Style="{StaticResource MahApps.Styles.Button.Dialogs.AccentHighlight}"/>
+                <Button x:Name="DelEmployee" Content="Delete" Width="100" Height="40" Margin="5,13"
+                        Background="DarkRed" Foreground="White" />
             </StackPanel>
         </Grid>
             

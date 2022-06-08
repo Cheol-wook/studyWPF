@@ -100,7 +100,8 @@
                      mah:TextBoxHelper.ClearTextButton="True"/>
 
             <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
-                <Button Content="SAVE" Width="100" Margin="13" Style="{StaticResource MahApps.Styles.Button.Dialogs.AccentHighlight}"/>
+                <Button x:Name="NewEmployee" Content="New" Width="100" Height="40" Margin="5,13"/>
+                <Button x:Name="SaveEmployee" Content="SAVE" Width="100" Margin="13" Style="{StaticResource MahApps.Styles.Button.Dialogs.AccentHighlight}"/>
             </StackPanel>
         </Grid>
             

@@ -56,6 +56,7 @@ namespace WpfCaliburnApp.ViewModels
             {
                 empName = value;
                 NotifyOfPropertyChange(() => empName);
+                NotifyOfPropertyChange(() => CanSaveEmployee);
             }
         }
         decimal salary;
@@ -66,6 +67,7 @@ namespace WpfCaliburnApp.ViewModels
             {
                 salary = value;
                 NotifyOfPropertyChange(() => salary);
+                NotifyOfPropertyChange(() => CanSaveEmployee);
             }
         }
         string deptName;
@@ -76,6 +78,7 @@ namespace WpfCaliburnApp.ViewModels
             {
                 deptName = value;
                 NotifyOfPropertyChange(() => deptName);
+                NotifyOfPropertyChange(() => CanSaveEmployee);
             }
         }
         string destination;
@@ -86,6 +89,7 @@ namespace WpfCaliburnApp.ViewModels
             {
                 destination = value;
                 NotifyOfPropertyChange(() => destination);
+                NotifyOfPropertyChange(() => CanSaveEmployee);
             }
         }
 
@@ -107,6 +111,77 @@ namespace WpfCaliburnApp.ViewModels
                 }
                 NotifyOfPropertyChange(() => SelectedEmployee);
             }
+        }
+
+        public void NewEmployee()
+        {
+            id = 0;
+            EmpName = string.Empty;
+            Salary = 0;
+            DeptName = Destination = string.Empty;
+        }
+
+        //버튼 활성/비활성 위한 속성
+        public bool CanSaveEmployee
+        {
+            get {
+                return !string.IsNullOrEmpty(EmpName) &&
+                  !string.IsNullOrEmpty(DeptName) &&
+                  !string.IsNullOrEmpty(Destination) &&
+                  salary != 0;
+            }
+        }
+
+        //버튼 이벤트 정의
+        public void SaveEmployee()
+        {
+            using (SqlConnection conn = new SqlConnection(connstring))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                if (id == 0)     //insert
+                    cmd.CommandText = @"INSERT INTO TblEmployees
+                                                (EmpName
+                                                , Salary
+                                                , DeptName
+                                                , Destination)
+                                            VALUES
+                                                (@EmpName
+                                                , @Salary
+                                                , @DeptName
+                                                , @Destination)";
+                else             //update
+                    cmd.CommandText = @"UPDATE TblEmployees
+                                       SET EmpName = @EmpName
+                                          ,Salary = @Salary
+                                          ,DeptName = @DeptName
+                                          ,Destination = @Destination
+                                      WHERE  id = @id ";
+
+                SqlParameter parmEmpName = new SqlParameter("@EmpName", EmpName);
+                SqlParameter parmSalary = new SqlParameter("@Salary", Salary);
+                SqlParameter parmDeptName = new SqlParameter("@DeptName", DeptName);
+                SqlParameter parmDestination = new SqlParameter("@Destination", Destination);
+
+                cmd.Parameters.Add(parmEmpName);
+                cmd.Parameters.Add(parmSalary);
+                cmd.Parameters.Add(parmDeptName);
+                cmd.Parameters.Add(parmDestination);
+
+                if(id != 0)     //update일 경우 id값도 파라미터로 추가해야함
+                {
+                    SqlParameter parmid = new SqlParameter("@id", id);
+                    cmd.Parameters.Add(parmid);
+                }
+
+                cmd.ExecuteNonQuery();
+
+            }   // End of Using (SqlConnection ...)
+
+            // 입력창 전부 초기화
+            // 데이터 다시 조회
+
         }
     }
 }

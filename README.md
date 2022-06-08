@@ -28,3 +28,10 @@ WPF학습 저장소
 ### Day05
 ---
 1. MVVM 패턴 학습
+
+### Day06
+---
+1. Caliburn.Micro MVVM 학습
+2. Bogus(FackData, DummyDAta) 패키지 학습
+3. SmartHome 앱 만들기
+

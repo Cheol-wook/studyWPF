@@ -84,6 +84,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Models\EmployeesModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Page Include="Views\MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -125,8 +126,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

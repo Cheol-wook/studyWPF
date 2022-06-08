@@ -1,29 +1,112 @@
 ﻿using Caliburn.Micro;
+using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Windows;
+using WpfCaliburnApp.Models;
 
 namespace WpfCaliburnApp.ViewModels
 {
     public class MainViewModel : Screen
     {
-        private string name;
-        public string Name
+        private EmployeesModel employee;
+        public List<EmployeesModel> Listemployees { get; set; }
+        string connstring = "Data Source=PC01;Initial Catalog=OpenApiLab;Integrated Security=True";
+
+        public MainViewModel()
         {
-            get { return name; }
-            set
+            using (SqlConnection conn = new SqlConnection(connstring))
             {
-                name = value;
-                NotifyOfPropertyChange(() => Name);
+                conn.Open();
+                string strQuery = "SELECT * FROM TblEmployees";
+                SqlCommand cmd = new SqlCommand(strQuery, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+                Listemployees = new List<EmployeesModel>();
+
+                while (reader.Read())
+                {
+                    var temp = new EmployeesModel
+                    {
+                        id = (int)reader["id"],
+                        EmpName = reader["EmpName"].ToString(),
+                        Salary = (decimal)reader["Salary"],
+                        DeptName = reader["DeptName"].ToString(),
+                        Destination = reader["Destination"].ToString()
+                    };
+
+                    Listemployees.Add(temp);
+                }
             }
         }
 
-        public bool CanSayHello
+        int Id;
+        public int id
         {
-            get { return !string.IsNullOrEmpty(Name); }
+            get { return Id; }
+            set
+            {
+                Id = value;
+                NotifyOfPropertyChange(() => Id);
+            }
+        }
+        string empName;
+        public string EmpName
+        {
+            get { return empName; }
+            set
+            {
+                empName = value;
+                NotifyOfPropertyChange(() => empName);
+            }
+        }
+        decimal salary;
+        public decimal Salary
+        {
+            get { return salary; }
+            set
+            {
+                salary = value;
+                NotifyOfPropertyChange(() => salary);
+            }
+        }
+        string deptName;
+        public string DeptName
+        {
+            get { return deptName; }
+            set
+            {
+                deptName = value;
+                NotifyOfPropertyChange(() => deptName);
+            }
+        }
+        string destination;
+        public string Destination
+        {
+            get { return destination; }
+            set
+            {
+                destination = value;
+                NotifyOfPropertyChange(() => destination);
+            }
         }
 
-        public void SayHello()
+        private EmployeesModel selectedEmployee;
+        public EmployeesModel SelectedEmployee
         {
-            MessageBox.Show($"Hello~ {Name}");
+            get { return selectedEmployee; }
+            set
+            {
+                selectedEmployee = value;
+
+                if (value != null)
+                {
+                    id = value.id;
+                    EmpName = value.EmpName;
+                    Salary = value.Salary;
+                    DeptName = value.DeptName;
+                    Destination = value.Destination;
+                }
+                NotifyOfPropertyChange(() => SelectedEmployee);
+            }
         }
     }
 }

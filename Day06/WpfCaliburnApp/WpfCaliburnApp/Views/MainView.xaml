@@ -6,8 +6,9 @@
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:local="clr-namespace:WpfCaliburnApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Caliburn MVVM App" Height="300" Width="300">
+    <StackPanel>
+        <TextBox x:Name="Name" />
+        <Button x:Name="SayHello" Content="Click"/>
+    </StackPanel>
 </mah:MetroWindow>

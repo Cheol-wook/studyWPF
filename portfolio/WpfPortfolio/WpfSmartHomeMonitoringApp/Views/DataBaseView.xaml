@@ -7,6 +7,28 @@
              xmlns:local="clr-namespace:WpfSmartHomeMonitoringApp.Views"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1280">
+    <UserControl.Resources>
+        <Style x:Key="ConsoleTextBox" TargetType="{x:Type TextBox}">
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="Background" Value="AntiqueWhite"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <ScrollViewer RenderTransformOrigin="0.5,0.5" VerticalScrollBarVisibility="Auto">
+                            <ScrollViewer.RenderTransform>
+                                <ScaleTransform ScaleY="-1"/>
+                            </ScrollViewer.RenderTransform>
+                            <TextBox Text="{TemplateBinding Text}" RenderTransformOrigin="0.5,0.5">
+                                <TextBox.RenderTransform>
+                                    <ScaleTransform ScaleY="-1"/>
+                                </TextBox.RenderTransform>
+                            </TextBox>
+                        </ScrollViewer>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -67,13 +89,14 @@
                        VerticalAlignment="Center" Margin="5,0"/>
             <TextBox x:Name="ConnString" Grid.Row="2" Grid.Column="1" FontSize="15"
                      VerticalAlignment="Center" Margin="5,0" />
-            <ToggleButton x:Name="ConnectDB" Grid.Row="3" Grid.Column="1" Margin="5,0"
+            <ToggleButton x:Name="ConnectDb" Grid.Row="3" Grid.Column="1" Margin="5,0"
                           VerticalAlignment="Center" Content="Connect" Width="100" Height="45"
                           HorizontalAlignment="Left" Style="{StaticResource MahApps.Styles.ToggleButton}"
                           IsChecked="{Binding IsConnected}"/>
             <TextBox x:Name="DbLog" Grid.Row="4" Grid.Column="1" Margin="5"
                      ScrollViewer.VerticalScrollBarVisibility="Visible"
-                     AcceptsReturn="True" TextWrapping="Wrap"/>
+                     AcceptsReturn="True" TextWrapping="Wrap"
+                     Style="{StaticResource ConsoleTextBox}"/>
         </Grid>
     </Grid>
 </UserControl>

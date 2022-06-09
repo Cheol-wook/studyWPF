@@ -37,7 +37,7 @@ WPF학습 저장소
 
 ## Day07
 ---
-1. SmartHome System 만들기
+1. SmartHome System 만들기 ([클릭](https://github.com/Cheol-wook/studyWPF/tree/main/portfolio#smarthome-monitoring-app))
   - MQTT Publish 프로그램
   - MQTT Broker 프로그램
   - MQTT Monitoring 프로그램

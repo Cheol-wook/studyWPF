@@ -18,11 +18,11 @@ WPF학습 저장소
 ---
 1. 디자인
 2. 리소스
-3. 네이버 영화 앱 만들기 ([클릭](https://github.com/Cheol-wook/studyWPF/tree/main/portfolio))
+3. 네이버 영화 앱 만들기 ([클릭]([https://github.com/Cheol-wook/studyWPF/tree/main/portfolio](https://github.com/Cheol-wook/studyWPF/tree/main/portfolio#naver-%EC%98%81%ED%99%94-%EA%B2%80%EC%83%89)))
 
 ### Day04
 ---
-1. 네이버 영화 앱 마무리([클릭](https://github.com/Cheol-wook/studyWPF/tree/main/portfolio))
+1. 네이버 영화 앱 마무리([클릭](https://github.com/Cheol-wook/studyWPF/tree/main/portfolio#naver-%EC%98%81%ED%99%94-%EA%B2%80%EC%83%89))
 2. 네이버 뉴스 검색 앱([클릭](https://github.com/Cheol-wook/studyWPF/tree/main/portfolio#naver-%EB%89%B4%EC%8A%A4%EA%B2%80%EC%83%89))
 
 ### Day05

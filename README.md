@@ -35,3 +35,9 @@ WPF학습 저장소
 2. Bogus(FackData, DummyDAta) 패키지 학습
 3. SmartHome 앱 만들기
 
+## Day07
+---
+1. SmartHome System 만들기
+  - MQTT Publish 프로그램
+  - MQTT Broker 프로그램
+  - MQTT Monitoring 프로그램

@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SmartHome", "SmartHome", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DummyDataApp", "DummyDataApp\DummyDataApp.csproj", "{B94B3E35-381D-4358-A2C7-FBCC337468C4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfSmartHomeMonitoringApp", "WpfSmartHomeMonitoringApp\WpfSmartHomeMonitoringApp.csproj", "{147DB65E-0F93-4FBD-8032-15AE0FEBBB46}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,12 +31,17 @@ Global
 		{B94B3E35-381D-4358-A2C7-FBCC337468C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B94B3E35-381D-4358-A2C7-FBCC337468C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B94B3E35-381D-4358-A2C7-FBCC337468C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{147DB65E-0F93-4FBD-8032-15AE0FEBBB46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{147DB65E-0F93-4FBD-8032-15AE0FEBBB46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{147DB65E-0F93-4FBD-8032-15AE0FEBBB46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{147DB65E-0F93-4FBD-8032-15AE0FEBBB46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B94B3E35-381D-4358-A2C7-FBCC337468C4} = {0B31B4F3-5850-4D3E-953B-1A8B82DC82FC}
+		{147DB65E-0F93-4FBD-8032-15AE0FEBBB46} = {0B31B4F3-5850-4D3E-953B-1A8B82DC82FC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E9FC4FCA-CAE4-4391-A734-361663CE9705}

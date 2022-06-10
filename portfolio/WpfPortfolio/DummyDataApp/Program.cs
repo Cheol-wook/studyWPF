@@ -54,8 +54,39 @@ namespace DummyDataApp
         {
             MqttThread = new Thread(() => LoopPublish());
             MqttThread.Start();
+
+/*            Thread thread2 = new Thread(() => LoopPublish2());
+            thread2.Start();
+
+            Thread thread3 = new Thread(() => LoopPublish3());
+            thread3.Start();*/
         }
 
+        private static void LoopPublish3()
+        {
+            SensorInfo tempvalue = SensorData.Generate();
+            tempvalue.DevId = Guid.NewGuid().ToString(); //newdata topic id 변경
+            CurrValue = JsonConvert.SerializeObject(tempvalue, Formatting.Indented);
+            Client.Publish("home/device/testdata", Encoding.Default.GetBytes(CurrValue));
+            Console.WriteLine($"Published newdata : {CurrValue}");
+            Thread.Sleep(2000);
+        }
+
+        //메인 메서드, LoopPublish와는 또 따로 동작하는 스레드
+        private static void LoopPublish2()
+        {
+            while (true)
+            {
+                SensorInfo tempvalue = SensorData.Generate();
+                tempvalue.DevId = Guid.NewGuid().ToString(); //newdata topic id 변경
+                CurrValue = JsonConvert.SerializeObject(tempvalue, Formatting.Indented);
+                Client.Publish("home/device/newdata", Encoding.Default.GetBytes(CurrValue));
+                Console.WriteLine($"Published newdata : {CurrValue}");
+                Thread.Sleep(1500);
+            }
+        }
+
+        //메인 메서드와 별개로 동작하는 스레드
         private static void LoopPublish()
         {
             while (true)
@@ -64,7 +95,7 @@ namespace DummyDataApp
                 CurrValue = JsonConvert.SerializeObject(tempvalue, Formatting.Indented);
                 Client.Publish("home/device/fakedata", Encoding.Default.GetBytes(CurrValue));
                 Console.WriteLine($"Published : {CurrValue}");
-                Thread.Sleep(1000);
+                Thread.Sleep(1500);
             }
         }
     }

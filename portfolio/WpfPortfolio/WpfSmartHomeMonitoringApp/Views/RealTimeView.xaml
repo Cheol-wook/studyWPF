@@ -29,7 +29,8 @@
             <Label Grid.Row="0" Grid.Column="0" Content="Realtime IoT Data Monitoring"
                Style="{StaticResource MahApps.Styles.Label}"
                FontSize="30" FontWeight="Bold"
-                   Foreground="DodgerBlue"/>
+                   Foreground="DodgerBlue"
+                   VerticalAlignment="Center"/>
 
         </StackPanel>
 
@@ -140,7 +141,7 @@
             
             <!--Living Humid chart-->
             <lvc:AngularGauge Grid.Row="2" Grid.Column="1" Margin="10"
-                              FromValue="0" ToValue="90" FontSize="16"
+                              FromValue="0" ToValue="90" FontSize="16" Value="{Binding LivingHumidVal}"
                               SectionsInnerRadius="0.8">
                 <lvc:AngularGauge.Sections>
                     <lvc:AngularSection FromValue="0" ToValue="40" Fill="GreenYellow"/>
@@ -152,7 +153,7 @@
             <!--DINNING humid chart-->
             <lvc:AngularGauge Grid.Row="2" Grid.Column="2" Margin="10"
                               FromValue="0" ToValue="90" FontSize="16"
-                              SectionsInnerRadius="0.8">
+                              SectionsInnerRadius="0.8" Value="{Binding DinningHumidVal}">
                 <lvc:AngularGauge.Sections>
                     <lvc:AngularSection FromValue="0" ToValue="40" Fill="GreenYellow"/>
                     <lvc:AngularSection FromValue="40" ToValue="70" Fill="Yellow"/>
@@ -163,7 +164,7 @@
             <!--Bed humid chart-->
             <lvc:AngularGauge Grid.Row="2" Grid.Column="3" Margin="10"
                               FromValue="0" ToValue="90" FontSize="16"
-                              SectionsInnerRadius="0.8">
+                              SectionsInnerRadius="0.8" Value="{Binding BedHumidVal}">
                 <lvc:AngularGauge.Sections>
                     <lvc:AngularSection FromValue="0" ToValue="40" Fill="GreenYellow"/>
                     <lvc:AngularSection FromValue="40" ToValue="70" Fill="Yellow"/>
@@ -174,7 +175,7 @@
             <!--Bath humid chart-->
             <lvc:AngularGauge Grid.Row="2" Grid.Column="4" Margin="10"
                               FromValue="0" ToValue="90" FontSize="16"
-                              SectionsInnerRadius="0.8">
+                              SectionsInnerRadius="0.8" Value="{Binding BathHumidVal}">
                 <lvc:AngularGauge.Sections>
                     <lvc:AngularSection FromValue="0" ToValue="40" Fill="GreenYellow"/>
                     <lvc:AngularSection FromValue="40" ToValue="70" Fill="Yellow"/>

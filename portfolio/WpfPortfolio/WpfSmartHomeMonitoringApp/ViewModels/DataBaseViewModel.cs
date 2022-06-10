@@ -80,6 +80,7 @@ namespace WpfSmartHomeMonitoringApp.ViewModels
             if (Commons.IS_CONNECT)
             {
                 IsConnected = true;
+                ConnectDb();
             }
         }
 

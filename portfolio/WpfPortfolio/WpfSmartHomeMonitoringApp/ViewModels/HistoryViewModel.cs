@@ -1,5 +1,7 @@
 ﻿using Caliburn.Micro;
 using OxyPlot;
+using OxyPlot.Legends;
+using OxyPlot.Series;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -7,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 using WpfSmartHomeMonitoringApp.Helpers;
 using WpfSmartHomeMonitoringApp.Models;
 
@@ -21,7 +24,7 @@ namespace WpfSmartHomeMonitoringApp.ViewModels
         private string endDate;
         private string initEndDate;
         private int totalCount;
-        private PlotModel smartHomeModel;
+        private PlotModel historyModel;     //smartHomeModle -> historyModel 이름 변경 2022.06.13
 
 
         /*
@@ -34,7 +37,7 @@ namespace WpfSmartHomeMonitoringApp.ViewModels
         InitEndDate
         TotalCount
         SearchIoTData()
-        SmartHomeModel
+        historyModel
             */
         public BindableCollection<DivisionModel> Divisions
         {
@@ -99,13 +102,13 @@ namespace WpfSmartHomeMonitoringApp.ViewModels
                 NotifyOfPropertyChange(() => TotalCount);
             }
         }
-        public PlotModel SmartHomeModel
+        public PlotModel HistoryModel       //smartHomeModle -> historyModel 이름 변경 2022.06.13
         {
-            get { return smartHomeModel; }
+            get { return historyModel; }
             set
             {
-                smartHomeModel = value;
-                NotifyOfPropertyChange(() => SmartHomeModel);
+                historyModel = value;
+                NotifyOfPropertyChange(() => HistoryModel);
             }
         }
         public HistoryViewModel()
@@ -191,15 +194,39 @@ namespace WpfSmartHomeMonitoringApp.ViewModels
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     var i = 0;
+                    //start of chart process 2022.06.13 추가
+
+                    PlotModel tmp = new PlotModel { Title = $"{SelectedDivision.DivisionVal} Histories"} ;      // 임시 플롯모델
+                    LineSeries seriesTemp = new LineSeries 
+                    {
+                        Color = OxyColor.FromRgb(180,20,50), 
+                        Title = "Temperature", MarkerType = MarkerType.Circle,
+                        MarkerSize = 3
+                    };      // 온도 값을 라인차트에 넣을 객체
+                    LineSeries seriesHumid = new LineSeries
+                    {
+                        Color = OxyColor.FromRgb(150, 150, 255),
+                        Title = "Humidity",
+                        MarkerType = MarkerType.Triangle
+                    };
+
                     while (reader.Read())
                     {
-                        var temp = reader["Temp"];
+                        //var temp = reader["Temp"];
                         // Temp, Humid 차트 데이터 생성
-
+                        seriesTemp.Points.Add(new DataPoint(i, Convert.ToDouble(reader["Temp"])));
+                        seriesHumid.Points.Add(new DataPoint(i, Convert.ToDouble(reader["Humid"])));
                         i++;
                     }
 
-                    TotalCount = i;
+                    TotalCount = i;     // 검색한 데이터 총 개수
+
+                    tmp.Series.Add(seriesTemp);
+                    tmp.Series.Add(seriesHumid);
+
+                    HistoryModel = tmp;
+
+                    //end of chart process 2022.06.13
                 }
                 catch (Exception ex)
                 {

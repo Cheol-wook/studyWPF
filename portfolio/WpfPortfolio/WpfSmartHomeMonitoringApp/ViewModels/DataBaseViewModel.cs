@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using uPLibrary.Networking.M2Mqtt;
 using uPLibrary.Networking.M2Mqtt.Messages;
 using WpfSmartHomeMonitoringApp.Helpers;
+using WpfSmartHomeMonitoringApp.Models;
 
 namespace WpfSmartHomeMonitoringApp.ViewModels
 {
@@ -151,8 +152,12 @@ namespace WpfSmartHomeMonitoringApp.ViewModels
         private void SetDataBase(string message)
         {
             var currDatas = JsonConvert.DeserializeObject<Dictionary<string, string>>(message);
-
+            var smartHomeModel = new SmartHomeModel();
             Debug.WriteLine(currDatas);
+            smartHomeModel.DevId = currDatas["DevId"];
+            smartHomeModel.CurrTime = DateTime.Parse(currDatas["currTime"]);
+            smartHomeModel.Temp = double.Parse(currDatas["Temp"]);
+            smartHomeModel.Humid = double.Parse(currDatas["Humid"]);
 
             using (SqlConnection conn = new SqlConnection(Commons.CONNSTRING))
             {

@@ -43,6 +43,7 @@
    - MahApps.Metro
    - Caliburn.Micro
    - LiveChart
+   - OxyPlot.Wpf
    - M2Mqtt
    - NewTonsoft.Json
    - SQLServer DB
@@ -51,3 +52,9 @@
 
 ![SmartHomeMonitoring](https://raw.githubusercontent.com/Cheol-wook/studyWPF/main/capture/SmartHome.JPG)
 DB모니터링 
+
+![RealTimeView](https://raw.githubusercontent.com/Cheol-wook/studyWPF/main/capture/RealTimeView.png)
+실시간 센서 디스플레이
+
+![HistoryView](https://raw.githubusercontent.com/Cheol-wook/studyWPF/main/capture/About.png)
+센서값 시각화 및 프로그램 정보창
